@@ -8,18 +8,18 @@ CREATE TABLE users (
   /* Describe your table here.*/
 );
 
+CREATE TABLE rooms (
+  ID INT AUTO_INCREMENT PRIMARY KEY, 
+  Roomname text
+);
+
 CREATE TABLE messages (
   ID INT AUTO_INCREMENT PRIMARY KEY,
   Message text, 
   UserID INT,
-  FOREIGN KEY (UserID) REFERENCES users(ID)
-);
-
-CREATE TABLE rooms (
-  ID INT AUTO_INCREMENT PRIMARY KEY, 
-  Roomname text,
-  MessageID INT,
-  FOREIGN KEY (MessageID) REFERENCES messages(ID) 
+  RoomID INT,
+  FOREIGN KEY (UserID) REFERENCES users(ID),
+  FOREIGN KEY (RoomID) REFERENCES rooms(ID)
 );
 
 /* Create other tables and define schemas for them here! */
